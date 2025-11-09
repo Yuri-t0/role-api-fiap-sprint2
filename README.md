@@ -13,17 +13,17 @@ Ela foi criada para demonstrar os conhecimentos de **JPA, H2 Database, Controlle
 
 ## 🧱 Estrutura do Projeto
 
-📦 role-api-fiap-sprint2
-┣ 📂 src/main/java/com/role/api
-┃ ┣ 📂 controller → Controladores REST (ex: EventoController, UsuarioController)
-┃ ┣ 📂 model → Entidades JPA (Evento, Usuario, Presenca, LocalEvento)
-┃ ┣ 📂 repository → Interfaces que acessam o banco via Spring Data JPA
-┃ ┗ 📂 service → Regras de negócio (serviços)
-┣ 📂 resources
-┃ ┗ 📜 application.properties → Configurações do banco (H2)
-┣ 📂 docs → Diagramas, cronograma e testes (Postman)
-┣ 📜 pom.xml
-┗ 📜 README.md
+📦 **role-api-fiap-sprint2**
+src/
+┣ main/java/com/role/api
+┃ ┣ controller → Controladores REST (EventoController, UsuarioController)
+┃ ┣ model → Entidades JPA (Evento, Usuario, Presenca, LocalEvento)
+┃ ┣ repository → Interfaces com o banco via Spring Data JPA
+┃ ┗ service → Regras de negócio (serviços)
+┣ main/resources → application.properties
+┣ docs → diagramas e coleção Postman
+┣ pom.xml
+┗ README.md
 
 yaml
 Copy code
@@ -32,19 +32,19 @@ Copy code
 
 ## ⚙️ Tecnologias Utilizadas
 
-- ☕ **Java 21**  
-- 🌱 **Spring Boot 3.5**  
-- 🧩 **Spring Data JPA**  
-- 🗄️ **Banco de Dados H2 (memória)**  
-- 🧰 **Lombok**  
-- 🧪 **Postman (para testes de API)**  
+- ☕ **Java 21**
+- 🌱 **Spring Boot 3.5**
+- 🧩 **Spring Data JPA**
+- 🗄️ **Banco de Dados H2 (memória)**
+- 🧰 **Lombok**
+- 🧪 **Postman (para testes de API)**
 - 🔧 **Maven**
 
 ---
 
 ## ▶️ Como Executar
 
-1. **Clonar o repositório:**
+1. **Clonar o repositório**
    ```bash
    git clone https://github.com/Yuri-t0/role-api-fiap-sprint2.git
 Abrir o projeto no IntelliJ IDEA ou VS Code
@@ -56,17 +56,20 @@ Copy code
 src/main/java/com/role/api/RoleApiFiapSprint2Application.java
 Acessar no navegador:
 
-🌐 Home: http://localhost:8080
+🌐 http://localhost:8080
 
-🧠 H2 Console: http://localhost:8080/h2-console
+🧠 http://localhost:8080/h2-console
+
 JDBC URL: jdbc:h2:mem:role
+
 User: sa
-Password: (deixe em branco)
+
+Password: (em branco)
 
 📚 Endpoints (Sprint 2)
 👤 Usuários
 Método	Endpoint	Descrição
-GET	/usuarios	Lista usuários
+GET	/usuarios	Lista todos os usuários
 GET	/usuarios/{id}	Busca por ID
 POST	/usuarios	Cria novo usuário
 PUT	/usuarios/{id}	Atualiza usuário
@@ -74,9 +77,9 @@ DELETE	/usuarios/{id}	Remove usuário
 
 🎟️ Eventos
 Método	Endpoint	Descrição
-GET	/eventos	Lista eventos
+GET	/eventos	Lista todos os eventos
 GET	/eventos/{id}	Busca evento por ID
-POST	/eventos	Cadastra evento
+POST	/eventos	Cadastra novo evento
 PUT	/eventos/{id}	Atualiza evento
 DELETE	/eventos/{id}	Exclui evento
 
@@ -87,7 +90,7 @@ POST	/presencas	Registra presença
 Corpo JSON	{ "usuarioId": 1, "eventoId": 1, "status": "CONFIRMADO" }	
 
 🤝 HATEOAS
-GET /usuarios/1 retorna:
+Exemplo de resposta de GET /usuarios/1:
 
 json
 Copy code
@@ -105,20 +108,19 @@ Copy code
 Relacionamentos:
 Usuario 1..* Presenca *..1 Evento e Evento *..1 LocalEvento
 Constraints:
-FKs em Presenca.usuario_id, Presenca.evento_id, Evento.local_id e Evento.organizador_id.
+FKs em Presenca.usuario_id, Presenca.evento_id, Evento.local_id e Evento.organizador_id
 
 🧪 Testes (Postman)
 A coleção de testes da API está disponível em:
 
 📄 docs/Role API - Sprint 2.postman_collection.json
 
-Inclui testes de GET, POST, PUT e DELETE para todos os recursos.
+Inclui requisições GET, POST, PUT e DELETE para todos os recursos,
+validadas no banco H2 com persistência e recuperação funcional.
 
-Todos foram validados no banco H2 com persistência e recuperação funcional.
-
-🎥 Vídeo (pitch + demo)
-🔗 Link para o vídeo no YouTube
-(Apresenta a proposta tecnológica, público-alvo e demonstração prática da API.)
+🎥 Vídeo (Pitch + Demo)
+🎬 Link para o vídeo no YouTube
+(Apresenta a proposta tecnológica, público-alvo e a demonstração prática da API.)
 
 📅 Cronograma Sprint 2
 Atividade	Responsável	Data	Status
@@ -139,3 +141,5 @@ João Vitor Lopes Santana (RM 560781) — Modelagem, testes e documentação
 
 🔗 Repositório Público
 📂 https://github.com/Yuri-t0/role-api-fiap-sprint2
+
+ 
