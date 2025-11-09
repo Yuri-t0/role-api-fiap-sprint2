@@ -14,6 +14,7 @@ Ela foi criada para demonstrar os conhecimentos de **JPA, H2 Database, Controlle
 ## 🧱 Estrutura do Projeto
 
 📦 **role-api-fiap-sprint2**
+
 src/
 ┣ main/java/com/role/api
 ┃ ┣ controller → Controladores REST (EventoController, UsuarioController)
@@ -47,7 +48,7 @@ Copy code
 1. **Clonar o repositório**
    ```bash
    git clone https://github.com/Yuri-t0/role-api-fiap-sprint2.git
-Abrir o projeto no IntelliJ IDEA ou VS Code
+Abrir o projeto no IntelliJ IDEA ou VS Code.
 
 Executar o arquivo principal:
 
@@ -141,5 +142,3 @@ João Vitor Lopes Santana (RM 560781) — Modelagem, testes e documentação
 
 🔗 Repositório Público
 📂 https://github.com/Yuri-t0/role-api-fiap-sprint2
-
- 
