@@ -117,8 +117,8 @@ Inclui requisições GET, POST, PUT e DELETE para todos os recursos,
 validadas no banco H2 com persistência e recuperação funcional.
 
 🎥 Vídeo (Pitch + Demo)
-🎬 Link para o vídeo no YouTube
-(Apresenta a proposta tecnológica, público-alvo e a demonstração prática da API.)
+🎬 [Link para o vídeo no YouTube](https://www.youtube.com/watch?v=CVt0AcMXjHU)
+
 
 📅 Cronograma Sprint 2
 Atividade	Responsável	Data	Status
