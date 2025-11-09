@@ -76,8 +76,6 @@ POST	/eventos	Cadastra um novo evento
 👥 Integrantes
 Yuri Ferreira (RM: 559223)
 
-Guilherme Jun Conheci (RM: 559986)
-
 João Vitor Lopes Santana (RM: 560781)
 
 🏁 Status do Projeto
