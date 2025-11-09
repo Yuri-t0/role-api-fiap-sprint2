@@ -25,10 +25,7 @@ src/
 ┣ docs → diagramas e coleção Postman
 ┣ pom.xml
 ┗ README.md
-
-yaml
-Copy code
-
+ 
 ---
 
 ## ⚙️ Tecnologias Utilizadas
@@ -94,7 +91,7 @@ Corpo JSON	{ "usuarioId": 1, "eventoId": 1, "status": "CONFIRMADO" }
 Exemplo de resposta de GET /usuarios/1:
 
 json
-Copy code
+ 
 {
   "_links": {
     "self": { "href": "/usuarios/1" },
