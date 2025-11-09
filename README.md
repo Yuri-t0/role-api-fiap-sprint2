@@ -1,62 +1,73 @@
-# 🎓 Role API - Sprint 2 (Java Advanced - FIAP)
+🎓 Role API — Sprint 2 (Java Advanced – FIAP)
 
-Projeto desenvolvido para a **Sprint 2** da disciplina **Java Advanced**, FIAP 2025.
+API em Spring Boot para gerenciar usuários, eventos, locais e presenças.
+Entrega da Sprint 2 com JPA, H2, HATEOAS e coleção Postman.
 
----
+🧱 Estrutura do Projeto
+role-api-fiap-sprint2/
+├─ src/
+│  └─ main/
+│     ├─ java/com/role/api/
+│     │  ├─ controller/   # Controladores REST (EventoController, UsuarioController, etc.)
+│     │  ├─ model/        # Entidades JPA (Evento, Usuario, Presenca, LocalEvento)
+│     │  ├─ repository/   # Interfaces Spring Data JPA
+│     │  └─ service/      # Regras de negócio
+│     └─ resources/
+│        ├─ application.properties
+│        └─ static/index.html  # Página inicial para evitar Whitelabel
+├─ docs/
+│  ├─ der.png
+│  ├─ classes.png
+│  └─ Role API - Sprint 2.postman_collection.json
+├─ pom.xml
+└─ README.md
 
-## 🚀 Sobre o Projeto
+🧩 Diagramas
 
-A **Role API** é uma aplicação desenvolvida em **Spring Boot** que gerencia eventos, usuários, locais e presenças.  
-Ela foi criada para demonstrar os conhecimentos de **JPA, H2 Database, Controllers REST, Repositórios e Postman**.
+Coloquei os arquivos em docs/der.png e docs/classes.png.
+Se os nomes forem diferentes, ajuste os caminhos abaixo.
 
----
 
-## 🧱 Estrutura do Projeto
 
-📦 **role-api-fiap-sprint2**
 
-src/
-┣ main/java/com/role/api
-┃ ┣ controller → Controladores REST (EventoController, UsuarioController)
-┃ ┣ model → Entidades JPA (Evento, Usuario, Presenca, LocalEvento)
-┃ ┣ repository → Interfaces com o banco via Spring Data JPA
-┃ ┗ service → Regras de negócio (serviços)
-┣ main/resources → application.properties
-┣ docs → diagramas e coleção Postman
-┣ pom.xml
-┗ README.md
- 
----
+⚙️ Tecnologias
 
-## ⚙️ Tecnologias Utilizadas
+Java 21
 
-- ☕ **Java 21**
-- 🌱 **Spring Boot 3.5**
-- 🧩 **Spring Data JPA**
-- 🗄️ **Banco de Dados H2 (memória)**
-- 🧰 **Lombok**
-- 🧪 **Postman (para testes de API)**
-- 🔧 **Maven**
+Spring Boot 3.5
 
----
+Spring Data JPA + Hibernate
 
-## ▶️ Como Executar
+H2 Database (memória)
 
-1. **Clonar o repositório**
-   ```bash
-   git clone https://github.com/Yuri-t0/role-api-fiap-sprint2.git
-Abrir o projeto no IntelliJ IDEA ou VS Code.
+Spring HATEOAS
 
-Executar o arquivo principal:
+Lombok
 
-swift
-Copy code
+Maven
+
+Postman (coleção de testes)
+
+▶️ Como Executar
+
+Clonar
+
+git clone https://github.com/Yuri-t0/role-api-fiap-sprint2.git
+
+
+Abrir no IntelliJ (ou VS Code com extensão Java).
+
+Rodar a aplicação
+Arquivo principal:
+
 src/main/java/com/role/api/RoleApiFiapSprint2Application.java
-Acessar no navegador:
 
-🌐 http://localhost:8080
 
-🧠 http://localhost:8080/h2-console
+Acessos
+
+Home: http://localhost:8080/
+
+H2 Console: http://localhost:8080/h2-console
 
 JDBC URL: jdbc:h2:mem:role
 
@@ -65,77 +76,73 @@ User: sa
 Password: (em branco)
 
 📚 Endpoints (Sprint 2)
-👤 Usuários
+Usuários
 Método	Endpoint	Descrição
-GET	/usuarios	Lista todos os usuários
+GET	/usuarios	Lista usuários
 GET	/usuarios/{id}	Busca por ID
-POST	/usuarios	Cria novo usuário
+POST	/usuarios	Cria usuário
 PUT	/usuarios/{id}	Atualiza usuário
 DELETE	/usuarios/{id}	Remove usuário
-
-🎟️ Eventos
+Eventos
 Método	Endpoint	Descrição
-GET	/eventos	Lista todos os eventos
-GET	/eventos/{id}	Busca evento por ID
-POST	/eventos	Cadastra novo evento
+GET	/eventos	Lista eventos
+GET	/eventos/{id}	Busca por ID
+POST	/eventos	Cria evento
 PUT	/eventos/{id}	Atualiza evento
 DELETE	/eventos/{id}	Exclui evento
-
-📍 Presenças
+Presenças
 Método	Endpoint	Descrição
 GET	/presencas	Lista presenças
 POST	/presencas	Registra presença
-Corpo JSON	{ "usuarioId": 1, "eventoId": 1, "status": "CONFIRMADO" }	
 
-🤝 HATEOAS
-Exemplo de resposta de GET /usuarios/1:
+Body (exemplo)
 
-json
- 
 {
+  "usuarioId": 1,
+  "eventoId": 1,
+  "status": "CONFIRMADO"
+}
+
+🔗 HATEOAS (exemplo de retorno GET /usuarios/1)
+{
+  "id": 1,
+  "nome": "Yuri",
+  "email": "yuri@role.com",
   "_links": {
-    "self": { "href": "/usuarios/1" },
-    "all": { "href": "/usuarios" },
-    "delete": { "href": "/usuarios/1" }
+    "self": { "href": "http://localhost:8080/usuarios/1" },
+    "all":  { "href": "http://localhost:8080/usuarios" },
+    "delete": { "href": "http://localhost:8080/usuarios/1" }
   }
 }
-🧩 Diagramas
 
+🧪 Testes no Postman
 
+Coleção pronta: docs/Role API - Sprint 2.postman_collection.json
 
-Relacionamentos:
-Usuario 1..* Presenca *..1 Evento e Evento *..1 LocalEvento
-Constraints:
-FKs em Presenca.usuario_id, Presenca.evento_id, Evento.local_id e Evento.organizador_id
+Importe no Postman: Import → File → selecione o .json
 
-🧪 Testes (Postman)
-A coleção de testes da API está disponível em:
+Configure a variável baseUrl (na aba Variables da coleção) com:
 
-📄 docs/Role API - Sprint 2.postman_collection.json
+http://localhost:8080
 
-Inclui requisições GET, POST, PUT e DELETE para todos os recursos,
-validadas no banco H2 com persistência e recuperação funcional.
+🎥 Vídeo (pitch + demo)
 
-🎥 Vídeo (Pitch + Demo)
-🎬 [Link para o vídeo no YouTube](https://www.youtube.com/watch?v=CVt0AcMXjHU)
+Link: [coloque aqui o link do seu vídeo de 1m04].
 
-
-📅 Cronograma Sprint 2
-Atividade	Responsável	Data	Status
-Refatoração packages (repositories/domain)	Yuri	05/11	✅
-HATEOAS nos recursos principais	Yuri	06/11	✅
-Coleção Postman Sprint 2	João	07/11	✅
-Diagramas (DER e Classes)	João	08/11	✅
-README + Página inicial /	Yuri	09/11	✅
+Dica: se precisar transcrever/legendar seu áudio, tente Veed.io, Descript ou Fliki (todas online e simples de usar).
 
 👥 Integrantes
-Adão Yuri Ferreira da Silva (RM 559223) — Backend, banco e integração H2
 
-João Vitor Lopes Santana (RM 560781) — Modelagem, testes e documentação
+Adão Yuri Ferreira da Silva (RM 559223) – Backend, banco e integração H2
 
-🏁 Status do Projeto
-✅ Finalizado e pronto para entrega da Sprint 2 - Java Advanced (FIAP 2025)
-🏷️ Tag: v2.0-sprint2
+João Vitor Lopes Santana (RM 560781) – Modelagem, testes e documentação
 
-🔗 Repositório Público
-📂 https://github.com/Yuri-t0/role-api-fiap-sprint2
+✅ Conformidade com a Rubrica
+
+Evolução desde a Sprint 1: refatoração de pacotes, inclusão de HATEOAS, README completo.
+
+Docs: README, diagramas (DER e Classes), vídeo e coleção Postman em docs/.
+
+Gestão de Configuração: repositório público com todo o conteúdo.
+
+Testes: coleção Postman exportada e pronta para validação.
