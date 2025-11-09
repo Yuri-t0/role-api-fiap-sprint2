@@ -121,18 +121,12 @@ Todos foram validados no banco H2 com persistência e recuperação funcional.
 (Apresenta a proposta tecnológica, público-alvo e demonstração prática da API.)
 
 📅 Cronograma Sprint 2
-
 Atividade	Responsável	Data	Status
-
 Refatoração packages (repositories/domain)	Yuri	05/11	✅
-
 HATEOAS nos recursos principais	Yuri	06/11	✅
-
 Coleção Postman Sprint 2	João	07/11	✅
-
 Diagramas (DER e Classes)	João	08/11	✅
-
-README + Finalizar Entrega /	Yuri	09/11	✅
+README + Página inicial /	Yuri	09/11	✅
 
 👥 Integrantes
 Adão Yuri Ferreira da Silva (RM 559223) — Backend, banco e integração H2
